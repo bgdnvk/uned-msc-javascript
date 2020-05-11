@@ -7,9 +7,23 @@
 </head>
 
 <body>
+    <p id="respuesta">El resultado de la suma es: </p>
+<script type="text/javascript">
+    let sumando1 = prompt("Introduce el sumando 1:");
+    let sumando2 = prompt("Introduce el sumando 2:");
+    //es mejor Number o parseInt?
+    let suma = Number(sumando1)+ Number(sumando2);
 
+    const respuesta = document.getElementById("respuesta");
+    respuesta.append(suma);
 
+    //comprobando q funciona
+    console.log(suma);
+    console.log(typeof(suma));
 
-
+    //probando otros metodos
+    //respuesta.appendChild(suma);
+    //document.write(Number(sumando1)+ Number(sumando2));
+</script>
 </body>
 </html>
