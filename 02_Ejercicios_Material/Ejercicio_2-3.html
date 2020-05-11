@@ -10,7 +10,100 @@
 	
 
 <h1>Ejercicio 2-3</h1>
+<!-- he agregado paragrafos para que los datos esten en nueva linea-->
+<p id="linea0"></p>
+<p id="linea1"></p>
+<p id="linea2"></p>
+
+<script>
+    //función principal para ejecutar todo
+    function main(){
+        dni();
+        fecha();
+        email();
+    }
+    main();
 
 
+
+    function dni(){
+        let regexDni = /^[0-9]{8,8}[A-Za-z]$/g;
+        let numeroDni = prompt("introduce tu dni: ");
+
+        let textoDni = "Tu DNI es: ";
+
+        if(regexDni.test(numeroDni)){
+            //document.writeln("tu dni es: "+numeroDni);
+            agregarTexto("linea0",textoDni, numeroDni);
+        } else{
+            return dni();
+        }
+    }
+
+    function fecha(){
+        let regexFecha = /^\d{2}[./-]\d{2}[./-]\d{4}$/g;
+        let numeroFecha = prompt("introduce la fecha: ");
+
+        let textoFecha = "La fecha que has introducido es: ";
+
+        if(regexFecha.test(numeroFecha)){
+            comprobarFecha(numeroFecha, fecha, textoFecha);
+            
+        } else {
+            return fecha();
+        }
+
+    }
+
+    //funcion para comprobar dado el formato DD/MM/YYYY
+    //los dias, meses y años sean correctos
+    //no sé como llamar en español las funciones "callback"
+    //el argumento "texto" es el texto a escribir si la fecha es correcta
+    function comprobarFecha(numFecha, callback, texto){
+        
+        let dia = Number(numFecha.slice(0,2));
+        let mes = Number(numFecha.slice(3,5));
+        let ans = Number(numFecha.slice(-4));
+        
+        if(dia > 31){
+            return callback();
+        } 
+        if (mes > 12){
+            return callback();
+        }
+        if (ans <= 1900 && ans >=2020){
+            return callback();
+        }
+        //podria retornar string pero supongo que no hace falta
+        //return document.writeln("\ntu fecha es: "+numFecha);
+        //let textoFecha = "La fecha que has introducido es: ";
+        return agregarTexto("linea1", texto, numFecha);
+
+    }
+
+    function email(){
+        let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g;
+        let emailDatos = prompt("introduce email: ");
+
+        let textoEmail = "El email introducido es: ";
+
+        if(emailRegex.test(emailDatos)){
+            agregarTexto("linea2", textoEmail, emailDatos);
+            //document.writeln("\ntu email es: " +emailDatos);
+        } else {
+            return email();
+        }
+    }
+
+    //funcion para agregar texto a los paragrafos
+    //ya que el writeln no agrega a nueva linea
+    function agregarTexto(id, texto, dato){
+        let agregar = document.getElementById(id);
+        agregar.textContent = texto+dato;
+    }
+
+    
+
+</script>
 </body>
 </html>
