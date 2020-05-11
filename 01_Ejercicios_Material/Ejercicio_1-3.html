@@ -9,15 +9,29 @@
 </head>
 
 <body>
+    <p id="mayus"></p>
+    <p id="minus"></p>
+<script>
+    let miTexto = prompt("Introduce un texto con mayúsculas y minúsculas: ");
+
+    let mayus = document.getElementById("mayus");
+    let minus = document.getElementById("minus");
+
+    mayus.append(
+        `Texto en mayúsculas: ${miTexto.toUpperCase()}`
+        );
+    minus.append(
+        `Texto en minúsculas: ${miTexto.toLocaleLowerCase()}`
+    );
 
 
+    /*
+    no funciona (escribe todo en la misma linea),
+    supongo que es por usar doc.write?
 
-
-
-
+    document.write(`Texto en mayúsculas: ${miTexto.toUpperCase()} 
+    Texto en minúsculas: ${miTexto.toLocaleLowerCase()}`);
+    */
 </script>
-
-
-
 </body>
 </html>

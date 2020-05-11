@@ -10,15 +10,23 @@
 
 <body>
 
+<script>
+    //casting a numero, se llama casting?
+    let dni = Number(prompt("Introduce los dígitos numéricos del DNI:"));
+    //comprobar el casting x consola
+    console.log(dni);
+    console.log(typeof(dni));
 
+    let numeroLetra = dni%23;
+    //comprobar q el numero este bien
+    console.log("la letra a elegir es nº "+numeroLetra);
 
-<!-- TRWAGMYFPDXBNJZSQVHLCKET  -->
-
-
-
+    let cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
+    //se genera la respuesta directamente al doc
+    document.write(`El DNI completo es: ${dni}-${cadena.charAt(numeroLetra)}`);
 </script>
 
 
-
+<!-- TRWAGMYFPDXBNJZSQVHLCKET  -->
 </body>
 </html>
