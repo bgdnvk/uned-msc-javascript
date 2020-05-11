@@ -11,5 +11,34 @@
 <h1> Ejercicio 2-1 </h1>
 
 
+<script>
+    //se comprueba que edad es
+    function escribirEdad(num){
+
+        let text = "";
+
+        //he usado ternary operator en vez de if-else
+        num <= 13? text = `Tienes ${num} años eres muy jovencito`:
+        num >= 14 && num <= 17? text = `Tienes ${num} años, probablemente seas un adolescente insoportable`:
+        num >= 18 && num < 65? text = `Tienes ${num} años, eres mayor de edad`:
+        num >= 65? text = `Distruta de tu jubilación`:"";
+
+        document.writeln(text);
+    }
+
+    function comrpobarEdad(){
+        let edad = prompt("Introduce cuántos años tienes: ");
+        if(!(edad >= 1 && edad <= 100)){
+            //se llama la función otra vez si el numero es erroneo
+            return comrpobarEdad();
+        } else{
+            //se escribe la edad correcta llamando a la función anterior
+            escribirEdad(edad);
+        }
+    }
+    comrpobarEdad();
+    
+    
+</script>
 </body>
 </html>
