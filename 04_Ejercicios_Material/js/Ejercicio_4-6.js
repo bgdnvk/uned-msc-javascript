@@ -2,9 +2,6 @@
 //array donde se guardan las imagenes
 const imgArr = [];
 
-//no se usa el array ver L44
-//const textoArr = [];
-
 function cambiarFoto(){
         
         let textGet = document.getElementById("titulos");
@@ -18,67 +15,58 @@ function cambiarFoto(){
 
 //se pone la imagen nueva
 function imageNueva(imageGet, textGet){
-    //calculo aleatorio de la posicion del array
-    //donde estan todas las imgs
-    let numAleatorio = Math.floor(Math.random()*imgArr.length);
     //se coge la imagen(dir de la imagen) del array con el num aleatorio
-    let imagenAleatoria = imgArr[numAleatorio];
-
-    //variable no se usa: ver línea 44
-    //let textoAponer = textoArr[numAleatorio];
+    let imagenAleatoria = imgArr[Math.floor(Math.random()*imgArr.length)];
 
     console.log("img puesta: "+imageGet);
-    console.log("img a poner: "+imagenAleatoria);
+    console.log("img a poner: "+imagenAleatoria.dir);
     
     //si la imagen que ya esta es la misma que la aleatoria se vuelve a calcular
-    if(imageGet === imagenAleatoria){
+    if(imageGet === imagenAleatoria.dir){
+        console.log("----Imagenes iguales!---");
         imageNueva(imageGet,textGet);
         
     } else{
         //se carga la direccion de la imagen en ID facultades
-        document.getElementById("facultades").setAttribute("src", imagenAleatoria);
+        document.getElementById("facultades").setAttribute("src", imagenAleatoria.dir);
         //se recorta y edita (si es necesario) el texto de la imagen que cogemos
         //se carga en ID titulos
-        textGet.textContent = `Facultad de ${cortarTexto(imagenAleatoria)}`;
-
-        /**  si el nombre de las facultades (al cargarlas, usando cargarFacultad())
-        * no estuviese alterado (si las imagenes tuviesen los nombres correctamente editados
-        * por ejemplo industriales.jpg en vez de industriales130.jpg)
-        * se podría usar el array textoArr y la siguiente carga a HTML: 
-        */
-        // textGet.textContent = `${textoAponer}`;
+        textGet.textContent = `Facultad de ${imagenAleatoria.facultad}`;
     }
 }
 
-/**
- * Se recorta el texto de la direccion de las imagenes
- * para que solo quede el nombre de las facultades
- */
-function cortarTexto(texto){
-    texto = texto.slice(8,-4);
-    if(texto.includes("130")){
-        return texto.slice(0,-3);
-    }
-    if(texto.includes("Historia")){
-        return "Geografia e Historia"
-    }
-    return texto;
-}
 //------------ se cargan las imagenes en el array imgArr[]----
 
 //funcion para cargar la img
 //solo sabiendo el nombre de la facultad
 function cargarFacultades(facultad){
-    imgArr.push(`img/foto${facultad}.jpg`);
-
-    //array de textos no se usa: ver linea 44
-    //textoArr.push(`Facultad de ${facultad}`);
+    /**
+     * se crea obj imagen
+     * dir donde la img esta alojada
+     * facultad = nombre de la facultad
+     */
+    let imagen ={
+        dir: `img/foto${facultad}.jpg`,
+        facultad: facultad,
+    }
+    
+    //se editan los nombres de las imagenes
+    if(imagen.facultad.includes("130")){
+        imagen.facultad = imagen.facultad.slice(0,-3)
+    }
+    if(imagen.facultad.includes("Historia")){
+        imagen.facultad = "Geografia e Historia"
+    }
+    //se el objeto imagen dentro del array imgArr
+    imgArr.push(imagen);
 }
 
 // se cargan tas las imagenes dentro del array
 // dado su nombre correspondiente
 // IIFE
 (function cargarImgs(){
+    console.log("##############CARGANDO IMAGENES################");
+    
     cargarFacultades("Ciencias");
     cargarFacultades("Derecho");
     cargarFacultades("Economicas");
@@ -88,6 +76,10 @@ function cargarFacultades(facultad){
     cargarFacultades("Industriales130");
     cargarFacultades("Informatica");
     cargarFacultades("Psicologia");
+
+    console.log("##########IMAGENES CARGADAS###############");
+    imgArr.forEach( i => console.log(i));
+    console.log("##########INICIO DEL PROGRAMA############");
 })()
 
 
