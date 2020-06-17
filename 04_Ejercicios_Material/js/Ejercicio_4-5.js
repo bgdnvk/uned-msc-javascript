@@ -3,10 +3,11 @@
 
 function obtenerLetra(){
 
-		//  TRWAGMYFPDXBNJZSQVHLCKET  
+	//se obtiene el nodo donde esta el dni
 	const dniNum = document.querySelector("form input");
+	//se obtiene la letra
 	const letra = letraDNI(dniNum.value);
-
+	//se agrega a la info que tenemos la letra
 	dniNum.value += letra;
 	/**
 	 * usando getElementById sería lo mismo pero hay que añádir

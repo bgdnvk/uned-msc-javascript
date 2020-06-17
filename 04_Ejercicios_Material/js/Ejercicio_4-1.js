@@ -24,10 +24,25 @@ function ponfecha(){
 	
 	escribe(fechaFinal);
 
-	//código que empecé a escribir antes de darme cuenta
-	//de que tendría que escribir los meses y días
-	// const dia = d.getDay();
-	// const diaNum = d.getDate();
-	// const mes = d.getMonth()+1;
-	// const año = d.getFullYear();
+	
+}
+
+//función tal como se describe en ayuda
+//quería algo más rápido para no tener que escribir el array de meses
+function ponfecha1(){
+	const d = new Date();
+	
+	const dia = d.getDay();
+	const diaNum = d.getDate();
+	const mes = d.getMonth()+1;
+	const año = d.getFullYear();
+
+	var semana = ["domingo", "lunes", "martes", "miércoles",
+	"jueves", "viernes", "sábado"];
+	const textoDiaSemana = semana[dia];
+
+	const fechaFinal = `Hoy es <b> ${textoDiaSemana} ${diaNum} de ___ de ${año}</b>`;
+
+	escribe(fechaFinal);
+
 }
