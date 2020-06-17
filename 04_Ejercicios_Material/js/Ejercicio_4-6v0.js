@@ -1,4 +1,7 @@
 // JavaScript Document
+
+//------- Primera iteración del ejercicio que decidí rehacer con objetos
+
 //array donde se guardan las imagenes
 const imgArr = [];
 
