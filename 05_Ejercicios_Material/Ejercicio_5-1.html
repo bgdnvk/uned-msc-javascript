@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>Ejercicio 5-1: Eventos</title>
-<script type="text/javascript" src="js/Ejercicio_5-1.js"></script>
+
 
 </head>
     <body bgColor="orange">
@@ -12,10 +12,33 @@
 <p>La imagen cambia cuando el puntero del rat&oacute;n est&aacute; encima, deja de estar encima, se hace click o se hace doble click. </p>
 
 <!-- Eventos registrados dentro de la definición del elemento -->
- <!-- se agrega la ID "cambio" para coger la img-->
-    <img id="cambio" src="img/Donald_1.png" />   
+    <img id="cambio" onmouseover="mOver(this)" 
+    onmouseout="mOut(this)" onclick="mClick(this)" 
+    ondblclick="mDbl(this)" src="img/Donald_1.png" />   
    
 </center>   
+
+<script>
+//funciones para los eventos dentro de img
+//se captura el objeto actual con this i se pasa como el argumento img
+    function mOver(img){
+        img.src = "img/Donald_2.png";
+    }
+
+    function mOut(img){
+        img.src = "img/Donald_1.png";
+    }
+
+    function mClick(img){
+        img.src = "img/Goofi_1.png";
+    }
+
+    function mDbl(img){
+        img.src = "img/Goofi_2.png";
+    }
+
+</script>
 </body>
+
 </html>
 

@@ -1,4 +1,11 @@
 // JavaScript Document
+
+//hice este ejercicio antes de leer 5-2
+//al leerlo simplemente he retocado 5-1.html con las funciones deseadas
+//dentro de un tag script y he eliminado la dependencia/src de 5-1.js
+//en 5-2 he reusado este código sin usar import
+
+
 /**
  * arrays con instrucciones según ejercicio
  * se puediese haber usado [x,x,x].forEach
