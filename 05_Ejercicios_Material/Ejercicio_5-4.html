@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>Diapositivas y vídeo sincronizados</title>
 
-<script type="text/javascript" src="js/Ejercicio_5-4.js"></script>
 
 <style type="text/css">
 	/*Borde redordeado para la diapositiva  */
@@ -49,11 +48,11 @@
 -->        
 
 <div style="text-align:center"> 
-     <button>Reproducir/Pausa</button>
+     <button id="play">Reproducir/Pausa</button>
  Tamaño: 
-      <button>Pequeño</button>
-      <button>Grande</button>
-      <button>Normal</button>
+      <button id="small">Pequeño</button>
+      <button id="big">Grande</button>
+      <button id="normal">Normal</button>
 </div> 
 
 
@@ -68,5 +67,8 @@
 	<img id="diapo" src="img/Imagen01_000.jpg"/>
 </div>    
     
-    
-</body
+<!--se pone script al final para que se ejecute al cargar la página-->
+<script type="text/javascript" src="js/Ejercicio_5-4.js"></script>
+
+</body>
+</html>
