@@ -26,7 +26,7 @@ window.onload = function(){
         //valor dentro del formulario
         let value = textDniForm.value;
         let rgx = new RegExp(/^[0-9]*$/);
-        //se escribe la letra si input son 8 numeros
+        //se escribe la letra si input son 8 números
         (longitud  === 8 && rgx.test(value)) && cambiaEstado();
         //si tenemos ya el dni escrito y pulsamos backspace dejamos solo los números
         //y se vuelve gráficamente al estado original
