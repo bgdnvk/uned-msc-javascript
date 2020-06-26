@@ -1,9 +1,6 @@
 // JavaScript Document
-
-
-
-
-
+//no sabía lo que hacer pues el ejercicio estaba resuelto en el pdf
+//he usado algunas partes y las otras las he cambiado
 
 //si no se pone el script al final de html se tiene que usar onload
 window.onload = function(){
@@ -24,10 +21,6 @@ window.onload = function(){
     })
     //se leen los números y se calcula la letra
     textDniForm.addEventListener("keyup", e => {
-        console.log(e);
-        console.log(e.key);
-        console.log(e.code);
-        
         // console.log(Number(e.key));
         let longitud = textDniForm.value.length;
         //valor dentro del formulario
@@ -36,20 +29,18 @@ window.onload = function(){
         //se escribe la letra si input son 8 numeros
         (longitud  === 8 && rgx.test(value)) && cambiaEstado();
         //si tenemos ya el dni escrito y pulsamos backspace dejamos solo los números
-        (e.key === "Backspace" && longitud >= 8) && (textDniForm.value = value.slice(0,8))
+        //y se vuelve gráficamente al estado original
+        (e.key === "Backspace" && longitud >= 8) && (textDniForm.value = value.slice(0,8)) && estadoOriginal();
     })
 }
-
 
 function cambiaEstado() {
     escribirLetra();
     cambiarTexto();
     cambiarColorFondo();
-    
 }
 
 function escribirLetra(){
-
     var dni = document.getElementById("textoDNI").value;
     var letras="TRWAGMYFPDXBNJZSQVHLCKET"
     var posicion=dni%23;
@@ -63,10 +54,18 @@ function escribirLetra(){
 function cambiarTexto(){
     document.getElementById("capaTextoId").innerHTML = "DNI completo";
 }
+
 function cambiarColorFondo() {
     //cambiado el color para parecerse al de ejercicio
     document.getElementById("form").style.backgroundColor ="#00b0ff";
     // y se cambia también el color de background
     document.body.style.backgroundColor = "#0081cb";
     //he usado la paleta de material design
+}
+
+//se pone todo a su estado original
+function estadoOriginal(){
+    document.getElementById("form").style.backgroundColor ="#dcdcdc";
+    document.body.style.backgroundColor = "white";
+    document.getElementById("capaTextoId").innerHTML = "Teclea los 8 dígitos numéricos del DNI y se añade la letra automáticamente";
 }
