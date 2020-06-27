@@ -24,7 +24,6 @@ window.addEventListener('load', function() {
     //se usa un foreach para iterar sobre el array de instrucciones
     instrucciones.forEach(function(element){
          //se crean event listeners con sus instrucciones específicas
-         //he usado function en vez de => para poder usar "this" (como en el enunciado)
         cambioImg.addEventListener(element[0], function(e){
             this.src = `img/${element[1]}`;
         });
